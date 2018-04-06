@@ -7,33 +7,26 @@ function Contact(first, last, date) {
   this.accounts = [];
 }
 
-function PizzaPrice (initialCost, size, toppings) {
+function PizzaPrice (initialCost, medium, large, mushroom, ham, bacon) {
   this.initialCost = 12.00;
-  // this.deposit = 5.00;
-  // this.withdrawal = 2.00;
-  this.size = [] ;
-  this.toppings = [] ;
-  //this.balance = balance;
+  this.medium = 11.00;
+  this.large = 14.00;
+  this.mushroom = 2.00;
+  this.ham = 1.00;
+  this.bacon = 3.00;
+  this.total =[];
+
 }
-Contact.prototype.fullName = function() {
+Contact.prototype.FullName = function() {
   return this.firstName + "-" + this.lastName + " " + this.date;
 }
-PizzaPrice.prototype.fullPrice = function() {
-  return this.initialCost + " " + this.size + " " + this.toppings;
+PizzaPrice.prototype.PizzaPrice = function() {
+  return  "Cost" + this.initialCost + "Size: " + this.medium + "Size: " + this.large + "Topping" + this.mushroom;
 }
-var subtract = function(inputtedDeposit, inputtedWithdrawal){
-	return inputtedDeposit - inputtedWithdrawal;
+var add = function(inputtedInitial, selectSize, selectTopping){
+	return inputtedInitial + selectSize + selectTopping;
   }
 
-
-// function resetFields() {
-//     $("input#new-first-name").val("");
-//     $("input#new-last-name").val("");
-//     $("input.new-initial").val("");
-//     $("input.new-deposit").val("");
-//     $("input.new-withdrawal").val("");
-//     $("input.new-balance").val("");
-// }
 
 // user interface logic
 $(document).ready(function() {
@@ -46,30 +39,29 @@ event.preventDefault();
 
     $(".new-account").each(function() {
       var inputtedInitial = parseInt ($(this).find("input.new-initialCost").val());
-      var inputtedDeposit = parseInt ($(this).find("input.new-deposit").val());
-      var inputtedWithdrawal = parseInt ($(this).find("input.new-withdrawal").val());
       var selectSize = $("select#new-size").val();
       var selectTopping = $("select#new-toppings").val();
 
-      var newAccount = new PizzaPrice(inputtedInitial, inputtedDeposit, inputtedWithdrawal, selectSize, selectTopping);
-      newContact.accounts.push(newAccount)
-      newAccount.size.push(newAccount)
-      newAccount.toppings.push(newAccount)
-      console.log(newAccount.size);
-      var result = subtract (inputtedDeposit, inputtedWithdrawal);
-      $("#Balance").text(result);
+      var newPrice = new PizzaPrice(inputtedInitial, selectSize, selectTopping);
 
+      alert(selectSize);
 
-      if (selectSize === "Medium"){
-        alert("Price is 10.00");
-      } else if (selectSize === "Large") {
-        alert ("Price is 12.00");
-      }
-      if (selectTopping === "Cheese", "Bacon", "Sausage", "Ham") {
-        alert ("Additional 2");
-      }
+      var result = add (selectSize, selectTopping);
+      $("#Balance").append(result);
+$("#Price").text()
+
+      // if (selectSize === "Medium"){
+      //   $("#Balance").append("10.00");
+      // } else if (selectSize === "Large") {
+      //     $("#Balance").append("12.00");
+      // }
+      // if (selectTopping === "Cheese", "Bacon", "Sausage", "Ham") {
+      //   alert ("Additional 2");
+      // }
     });
-    $("ul#contacts").append("<li><span class='contact'>" + newContact.fullName() + "</span></li>");
+
+
+    $("ul#contacts").append("<li><span class='contact'>" + newContact.FullName() + "</span></li>");
 
     $(".contact").last().click(function() {
       $("#show-contact").show();
@@ -79,9 +71,6 @@ event.preventDefault();
 
       newContact.accounts.forEach(function(PizzaPrice) {
         $("ul#accounts").append("<li>" + PizzaPrice.fullPrice() + "</li>");
-
-
-
 
       });
     });
