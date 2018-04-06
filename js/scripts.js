@@ -7,19 +7,19 @@ function Contact(first, last, date) {
   this.accounts = [];
 }
 
-function BankAccount(initial, deposit, withdrawal, size, toppings) {
-  this.initial = 12.00;
-  this.deposit = 5.00;
-  this.withdrawal = 2.00;
-  this.size = "test";
-  this.toppings = 1.00;
+function PizzaPrice (initialCost, size, toppings) {
+  this.initialCost = 12.00;
+  // this.deposit = 5.00;
+  // this.withdrawal = 2.00;
+  this.size = [] ;
+  this.toppings = [] ;
   //this.balance = balance;
 }
 Contact.prototype.fullName = function() {
   return this.firstName + "-" + this.lastName + " " + this.date;
 }
-BankAccount.prototype.fullAccount = function() {
-  return this.initial + " " + this.deposit + " " + this.withdrawal + " " + this.size + "10.00 " + this.toppings;
+PizzaPrice.prototype.fullPrice = function() {
+  return this.initialCost + " " + this.size + " " + this.toppings;
 }
 var subtract = function(inputtedDeposit, inputtedWithdrawal){
 	return inputtedDeposit - inputtedWithdrawal;
@@ -45,35 +45,41 @@ event.preventDefault();
     var newContact = new Contact(inputtedDate, inputtedFirstName, inputtedLastName);
 
     $(".new-account").each(function() {
-      var inputtedInitial = parseInt ($(this).find("input.new-initial").val());
+      var inputtedInitial = parseInt ($(this).find("input.new-initialCost").val());
       var inputtedDeposit = parseInt ($(this).find("input.new-deposit").val());
       var inputtedWithdrawal = parseInt ($(this).find("input.new-withdrawal").val());
-      var selectSize = parseInt ($(this).find("select.new-size").val());
-      var selectToppings = parseInt ($(this).find("select.new-toppings").val());
+      var selectSize = $("select#new-size").val();
+      var selectTopping = $("select#new-toppings").val();
 
-      //var inputtedBalance = $(this).find("input.new-balance").val();
-      var newAccount = new BankAccount(inputtedInitial, inputtedDeposit, inputtedWithdrawal, selectSize, selectToppings);
+      var newAccount = new PizzaPrice(inputtedInitial, inputtedDeposit, inputtedWithdrawal, selectSize, selectTopping);
       newContact.accounts.push(newAccount)
-      alert(BankAccount);
-
+      newAccount.size.push(newAccount)
+      newAccount.toppings.push(newAccount)
+      console.log(newAccount.size);
       var result = subtract (inputtedDeposit, inputtedWithdrawal);
       $("#Balance").text(result);
 
+
+      if (selectSize === "Medium"){
+        alert("Price is 10.00");
+      } else if (selectSize === "Large") {
+        alert ("Price is 12.00");
+      }
+      if (selectTopping === "Cheese", "Bacon", "Sausage", "Ham") {
+        alert ("Additional 2");
+      }
     });
     $("ul#contacts").append("<li><span class='contact'>" + newContact.fullName() + "</span></li>");
 
-
-
-
     $(".contact").last().click(function() {
       $("#show-contact").show();
-      //$("#show-contact h2").text(newContact.fullName());
       $(".first-name").text(newContact.firstName);
       $(".last-name").text(newContact.lastName);
       $("ul#accounts").text("");
 
-      newContact.accounts.forEach(function(BankAccount) {
-        $("ul#accounts").append("<li>" + BankAccount.fullAccount() +"</li>");
+      newContact.accounts.forEach(function(PizzaPrice) {
+        $("ul#accounts").append("<li>" + PizzaPrice.fullPrice() + "</li>");
+
 
 
 
