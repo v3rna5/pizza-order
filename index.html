@@ -8,106 +8,73 @@
       <title>Order Pizza Project</title>
     </head>
     <body>
-      <div class="container jumbotron jumbotron-flex">
-
-
-        <h1>Order Pizza</h1>
+    <div class="container jumbotron jumbotron-flex">
+      <h1>Order Pizza</h1>
         <hr>
         <div class="row">
           <div class="col-md-6">
-
             <form id="new-contact">
-
               <div class="form-group">
                 <label for="example-date-input" class="col-2 col-form-label">Date</label>
                   <input class="form-control" type="date"  id="new-date">
-                </div>
+              </div>
 
-                <div class="form-group">
+              <div class="form-group">
                 <label for="new-first-name">First name</label>
                 <input type="text" class="form-control" id="new-first-name">
               </div>
+
               <div class="form-group">
                 <label for="new-last-name">Last name</label>
                 <input type="text" class="form-control" id="new-last-name">
               </div>
-              <hr>
 
-              <div id="new-account">
-                 <div class="new-account">
-                   <div class="form-group">
-                     <label for="new-initial">Initial Pizza Cost</label>
-                     <input type="text" class="form-control" id="new-initial" placeholder="12.00">
+              <p>What Size</p>
+              <div class="radio">
+              <label>
+              <input type="radio" name="movie" value="Medium" checked>
+              Medium
+            </label>
 
-                   </div>
-                   <!-- <div class="form-group">
-                     <label for="new-deposit">Pizza Size</label>
-                     <input type="text" class="form-control" id="new-deposit">
-                   </div> -->
+                  <label>
+                      <input type="radio" name="movie" value="Large">
+                      Large
+                    </label>
 
-
-
-
-                   <div class="form-group">
-                       <label for="new-size">Select Pizza Size</label>
-                       <select type="text" class="form-control" id="new-size">
-                         <option>Medium</option>
-                         <option>Large</option>
-                        </select>
-                     </div>
-
-
-
-                       <div class="form-group">
-                           <label for="new-toppings">Select Toppings</label>
-                           <select type="text" class="form-control" id="new-toppings">
-                             <option>Cheese</option>
-                             <option>Sausage</option>
-                             <option>Bacon</option>
-                             <option>Mushroom</option>
-                             <option>Spinach</option>
-                           </select>
-                         </div>
-
-
-                   <!-- <div class="form-group">
-                     <label for="new-withdrawal">Select Toppings</label>
-                     <input type="text" class="form-control" id="new-withdrawal">
-                   </div> -->
-                   <!-- <div class="form-group">
-                     <label for="new-balance">Balance</label>
-                     <input type="text" class="form-control new-balance">
-                   </div> -->
-                 </div>
-               </div>
+              <!-- </div> -->
+                  <p>Toppings</p>
+                  <!-- <div class="radio"> -->
+                    <label>
+                      <input type="radio" name="time" value="Sausage" checked>
+                      Sausage
+                    </label>
+                    <label>
+                      <input type="radio" name="time" value="Ham">
+                      Ham
+                    </label>
+                    <label>
+                      <input type="radio" name="time" value="Mushroom">
+                      Mushroom
+                    </label>
+                    <label>
+                      <input type="radio" name="time" value="Spinach">
+                      Spinach
+                    </label>
+                  </div>
+                 <!-- </div>
+               </div> -->
 
                <!-- <span class="btn btn-primary" id="add-address">Another address</span> -->
 
                <button type="submit" class="btn">Order!</button>
                <hr>
-               <h5 id="Balance">$</h5>
-               <h1 id="Price"></h1>
-                          </form>
+               <div class="col-md-6">
 
+                  <h1 id="pizza"></h1>
+                 <h1 id="contacts"></h1>
 
-           </div>
+                 
 
-           <div class="col-md-6">
-             <h6>Orders</h6>
-             <ul id="contacts">
-
-             </ul>
-             <div id="show-contact">
-               <h2></h2>
-               <!-- <p>First name: <span class="first-name"></span></p> -->
-               <!-- <p>Last name: <span class="last-name"></span></p> -->
-               <p>Finalize Order:</p>
-               <ul id="accounts">
-
-               </ul>
-             </div>
-           </div>
-         </div>
-       </div>
      </body>
+
    </html>
