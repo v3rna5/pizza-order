@@ -1,6 +1,6 @@
-#show-contact {
+/* #show-contact {
   display: none;
-}
+} */
 
 .contact {
   cursor: pointer;
@@ -11,11 +11,11 @@
   text-decoration: underline;
 }
 
-h5 {
+/* h5 {
   border-style: ridge;
   center
 }
 
-h6 {
+h4 {
   center
-}
+} */
